@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4ik8qy/PmnFBvRIQpbCFplPa0y/sViZ47AB6c3lRdOQVrQFBGhymy8VLUhQvTXnYs/Kvi1PSGokGDbOMRB5aDw==",
+  "dgSpecHash": "H6t0p3pRtg1E0oGA+6GEocE9o7Vww4OXyFF8ipnfv82bqz4n2p4fW6oPMDf2BfajrOtv7SMT5uOop7Te+zzbfQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\facun\\Desktop\\templateparcial\\CsharpParcial-tempalte\\Api\\Api\\Api.csproj",
+  "projectFilePath": "C:\\Users\\facun\\Desktop\\dos\\CsharpParcial-tempalte\\Api\\Api\\Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\facun\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\facun\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

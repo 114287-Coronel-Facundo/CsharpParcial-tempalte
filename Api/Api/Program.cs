@@ -1,5 +1,9 @@
 using Api.AutoMapper;
 using Api.Data;
+using Api.Interfaces.Repositories;
+using Api.Interfaces.Services;
+using Api.Repositories;
+using Api.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,14 +15,22 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//builder.Services.AddCors(options =>
+//{
+//    options.AddDefaultPolicy(policy =>
+//    {
+//        policy.AllowAnyHeader()
+//        .AllowAnyOrigin()
+//                .AllowAnyMethod();
+//    });
+//});
+
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(policy =>
-    {
-        policy.AllowAnyHeader()
-        .AllowAnyOrigin()
-                .AllowAnyMethod();
-    });
+    options.AddPolicy("AllowSpecificOrigin",
+        builder => builder.WithOrigins("http://127.0.0.1:5500") // Ajusta esto a tu origen
+                          .AllowAnyMethod()
+                          .AllowAnyHeader());
 });
 
 builder.Services.AddDbContext<ContextDb>(option =>
@@ -27,6 +39,9 @@ builder.Services.AddDbContext<ContextDb>(option =>
 });
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+builder.Services.AddScoped<IRolService, RolService>();
+builder.Services.AddScoped<IRolRepository, RolRepository>();
 
 var app = builder.Build();
 
@@ -42,5 +57,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors("AllowSpecificOrigin");
 
 app.Run();
